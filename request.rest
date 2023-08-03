@@ -1,0 +1,45 @@
+###
+
+GET  http://localhost:3000/post/todos
+
+###
+POST http://localhost:3000/post/criar
+Content-Type: application/json
+
+{
+    "title":"teste novo",
+    "category":"new",
+    "content": "new",
+    "image":"new"
+}
+
+###
+GET http://localhost:3000/post/buscar/64c965f0c2d836a2edb4b3e4
+
+
+###
+
+GET  http://localhost:3000/post/id
+Content-Type: application/json
+
+{
+    "id":"64beb52c044c2e88394c01a6"
+}
+###
+
+DELETE   http://localhost:3000/post/id
+Content-Type: application/json
+
+{
+    "id":"64c965f0c2d836a2edb4b3e4"
+}
+
+###
+
+GET  http://localhost:3000/post/buscar
+Content-Type: application/json
+
+{
+    "title":"busca"
+}
+
