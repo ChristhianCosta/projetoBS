@@ -20,6 +20,12 @@ const postController = {
         }
     },
 
+    createImage: async(req, res)=>{
+        console.log(req.file)
+
+        return res.json({hello:"world"})
+    },
+
     findOne: async(req, res)=>{
         try {
             //como cliente pode obter essa id?

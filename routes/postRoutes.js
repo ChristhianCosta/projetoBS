@@ -1,11 +1,15 @@
 import postController from "../controler/postController.js";
 import { Router } from "express";
+import upload from "../config/multer.js";
 
 
 const postRouter = Router();
 
 //criar
 postRouter.post('/criar', postController.createPost)
+
+//rota teste para multipart
+postRouter.post('/criarmulti', upload.single("file"), postController.createImage)
 
 //buscar
 postRouter.get('/buscar', postController.findTitle)
