@@ -21,7 +21,7 @@ const postController = {
     },
 
     createImage: async(req, res)=>{
-        console.log(req)
+        console.log(req.path)
 
         return res.json({obj:req.body, file:req.file})
     },

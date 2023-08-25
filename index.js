@@ -14,7 +14,7 @@ app.use(router);
 app.use('/post', postRouter)
 
 //conexão com banco de dados
-//db();
+db();
 
 app.listen(3000, ()=> {
 console.log("http://localhost:3000")
