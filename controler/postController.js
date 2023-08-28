@@ -21,9 +21,21 @@ const postController = {
     },
 
     createImage: async(req, res)=>{
-        console.log(req.path)
+        try {
+            const post = {
+                title: req.body.title,
+                category: req.body.category,
+                content:req.body.content,
+                image:req.file.path, 
+            };
+            console.log(post)
+            const response = await Post.create(post);
 
-        return res.json({obj:req.body, file:req.file})
+            res.status(201).json({response, msg:"Postagem efetuada com sucesso"})
+        } catch (error) {
+            console.log(error)
+            console.log("tentou criar")
+        }
     },
 
     findOne: async(req, res)=>{
