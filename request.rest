@@ -3,6 +3,15 @@
 GET  http://localhost:3000/post/todos
 
 ###
+POST http://localhost:3000/user/criar
+Content-Type: application/json
+
+{
+    "username":"novo user",
+    "email":"new@test",
+    "password": "new123",
+}
+###
 POST http://localhost:3000/post/criar
 Content-Type: application/json
 

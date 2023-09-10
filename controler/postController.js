@@ -16,7 +16,6 @@ const postController = {
             res.status(201).json({response, msg:"Postagem efetuada com sucesso"})
         } catch (error) {
             console.log(error)
-            console.log("tentou criar")
         }
     },
 
@@ -28,13 +27,13 @@ const postController = {
                 content:req.body.content,
                 image:req.file.path, 
             };
-            console.log(post)
+            
             const response = await Post.create(post);
 
             res.status(201).json({response, msg:"Postagem efetuada com sucesso"})
         } catch (error) {
             console.log(error)
-            console.log("tentou criar")
+            
         }
     },
 
