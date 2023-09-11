@@ -1,21 +1,25 @@
-import User from "../models/user";
+import User from "../models/user.js";
 import bcrypt from 'bcrypt'
 
-export const userControl = {
+export const userController = {
     createUser: async (req, res)=>{
-        let passholder = req.body.password
+        console.log(req.body)
+        try {       
 
-        bcrypt.hash(passholder,10).then(async (hash)=>{
             const user = {
                 username: req.body.username,
                 email: req.body.email,
-                password: hash
+                password: await bcrypt.hash(req.body.password,6)
             } 
-            console.log(user)
-            //const response = await User.create(user);
+            
+        } catch (error) {
+            console.log(error)
+        }   
+        //const response = await User.create(user);
 
-            //res.status(201).json({response, msg:"usuário criado com sucesso"})
-        })
+        res.status(201).json({response, user})
+        
+       
 
         
     }

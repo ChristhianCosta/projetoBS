@@ -20,6 +20,6 @@ const postSchema = new Schema({
     image: String
 }, {timestamps: true})
 
-const User = model('Post', postSchema)
+const User = model('User', postSchema)
 
 export default User;
