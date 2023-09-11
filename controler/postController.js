@@ -1,5 +1,8 @@
 import Post from "../models/post.js";
 
+/*
+    criar serviço e classe e serviço para cada um
+*/
 
 const postController = {
     createPost: async(req, res)=>{
