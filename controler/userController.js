@@ -9,6 +9,7 @@ export const userController = {
             if(userDB){
                 res.json({message:"usuário já existe", data:userDB.email})
             } else{
+
                 const user = {
                     username: req.body.username,
                     email: req.body.email,
@@ -22,8 +23,7 @@ export const userController = {
                     res.status(400).json({message:error})
                 }
             }
-        })
-                                   
+        })                                   
     },
 
     loginUser: async (req, res) =>{
@@ -43,9 +43,8 @@ export const userController = {
             
         }).catch((err)=>{
             console.log(err);
-        });       
-              
-
+        });    
+             
         
     }
 }

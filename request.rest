@@ -9,8 +9,17 @@ Content-Type: application/json
 {
     "username":"novo user",
     "email":"new@test",
-    "password": "new123",
+    "password":"new123"
 }
+
+###
+POST http://localhost:3000/user/achar
+Content-Type: application/json
+
+{
+    "username":"ChristhianCosta"
+}
+
 ###
 POST http://localhost:3000/post/criar
 Content-Type: application/json
