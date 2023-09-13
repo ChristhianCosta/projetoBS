@@ -1,6 +1,8 @@
 import { response } from "express";
 import User from "../models/user.js";
 import bcrypt from 'bcrypt'
+import createToken from "../config/JWT.js";
+import cookieParser from "cookie-parser";
 
 export const userController = {
     createUser: async (req, res)=>{        
@@ -38,7 +40,13 @@ export const userController = {
                     if(!match){
                         res.status(400).json({error:"Combinação de senha e usuário errada"})
                     } else {
-                        res.status(201).json({estado:`logado ${user.username}`})
+                        const accessToken = createToken(user)
+
+                        res.cookie("access-token", accessToken,{
+                            MaxAge: 1000*60*60
+                        })
+
+                        //res.status(201).json({estado:`logado ${user.username}`})
                     }
                     
                 })
