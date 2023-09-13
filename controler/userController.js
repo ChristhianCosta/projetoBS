@@ -27,7 +27,26 @@ export const userController = {
     },
 
     loginUser: async (req, res) =>{
-
+        const {email, password} = req.body
+        
+        try {
+            const user = await User.findOne({email:email})
+            if(!user){
+                res.status(404).json({message:"usuário não encontrado"})
+            } else{
+                bcrypt.compare(password, user.password).then((match)=>{
+                    if(!match){
+                        res.status(400).json({error:"Combinação de senha e usuário errada"})
+                    } else {
+                        res.status(201).json({estado:`logado ${user.username}`})
+                    }
+                    
+                })
+            }
+            
+        } catch (error) {
+            res.status(400).json({error:error})
+        }
     },
 
     findUser: async (req, res)=>{

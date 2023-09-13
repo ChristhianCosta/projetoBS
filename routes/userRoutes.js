@@ -8,6 +8,7 @@ const userRouter = Router();
 
 userRouter.post('/criar', userController.createUser)
 userRouter.post('/achar', userController.findUser)
+userRouter.post('/login', userController.loginUser)
 
 
 export default userRouter
