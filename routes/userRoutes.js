@@ -6,7 +6,8 @@ import bcrypt from 'bcrypt'
 
 const userRouter = Router();
 
-userRouter.post('/criar', await userController.createUser)
+userRouter.post('/criar', userController.createUser)
+userRouter.post('/achar', userController.findUser)
 
 
 export default userRouter
