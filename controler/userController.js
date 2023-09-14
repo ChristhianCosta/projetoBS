@@ -39,16 +39,12 @@ export const userController = {
                 bcrypt.compare(password, user.password).then((match)=>{
                     if(!match){
                         res.status(400).json({error:"Combinação de senha e usuário errada"})
-                    } else {
-                        console.log("houve o match")
-                        const accessToken = createToken(user)
-                        console.log("pegou o token")
-
-                        //res.json({token: accessToken})
-
-                        res.cookie("access-token", accessToken,{
-                            httpOnly:true
-                            //MaxAge: 1000*60*60
+                    } else {                        
+                        const accessToken = createToken(user)                       
+                        
+                        res.cookie("accessToken", accessToken,{
+                            httpOnly: true,
+                            secure: false                            
                         })
 
                         res.status(201).json({estado:`logado ${user.username}`})
