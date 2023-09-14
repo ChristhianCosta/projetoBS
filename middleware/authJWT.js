@@ -4,11 +4,13 @@ import 'dotenv/config'
 const {verify} = jwt
 
 const authToken = (req, res, next) =>{
-    const acessToken = req.cookie.acessToken
+   
+    const accessToken = req.cookies.accessToken
     console.log("chegou em auth token")
     
+    console.log(accessToken)
     try {
-        const user = verify(acessToken, process.env.SECRET);
+        const user = verify(accessToken, process.env.SECRET);
         console.log("verificou")
         req.user = user
         next()
