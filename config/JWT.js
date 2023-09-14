@@ -1,8 +1,10 @@
-import * as jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
+const { sign, verify } = jwt;
 import 'dotenv/config'
 
 const createToken = (user) =>{
-    const accessToken = jwt.sign({username:user.username}, `${process.env.SECRET}`)
+    
+    const accessToken = sign({username:user.username}, process.env.SECRET)
 
     return accessToken
 }
