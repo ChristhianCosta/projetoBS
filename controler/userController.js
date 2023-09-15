@@ -65,7 +65,7 @@ export const userController = {
             
             if(!user){
                 res.json({message:"usuário não existe"})
-            } else{
+            } else{                
                 res.json({message: "usuário encontrado", data:user})
             }                
             

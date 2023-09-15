@@ -5,13 +5,11 @@ const {verify} = jwt
 
 const authToken = (req, res, next) =>{
    
-    const accessToken = req.cookies.accessToken
-    console.log("chegou em auth token")
-    
-    console.log(accessToken)
+    const accessToken = req.cookies.accessToken       
+   
     try {
         const user = verify(accessToken, process.env.SECRET);
-        console.log("verificou")
+        
         req.user = user
         next()
     } catch (error) {
