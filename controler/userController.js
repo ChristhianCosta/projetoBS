@@ -40,14 +40,12 @@ export const userController = {
                     if(!match){
                         res.status(400).json({error:"Combinação de senha e usuário errada"})
                     } else {                        
-                        const accessToken = createToken(user)                       
-                        
+                        const accessToken = createToken(user)                   
+                       
                         res.cookie("accessToken", accessToken,{
                             httpOnly: true,
                             secure: false                            
-                        })
-
-                        res.status(201).json({estado:`logado ${user.username}`})
+                        }).status(201).json({estado:`logado ${user.username}`})
                     }
                     
                 })
