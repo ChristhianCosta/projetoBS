@@ -30,6 +30,8 @@ export const userController = {
 
     loginUser: async (req, res) =>{
         const {email, password} = req.body
+        console.log("loginUser")
+        console.log(req.body)
         
         try {
             const user = await User.findOne({email:email})
@@ -44,7 +46,8 @@ export const userController = {
                        
                         res.cookie("accessToken", accessToken,{
                             httpOnly: true,
-                            secure: false                            
+                            secure: false,
+                            maxAge: 1000*60*60                            
                         }).status(201).json({estado:`logado ${user.username}`})
                     }
                     
