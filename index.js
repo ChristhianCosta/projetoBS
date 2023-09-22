@@ -9,8 +9,8 @@ import cookieParser from "cookie-parser";
 import postRouter from "./routes/postRoutes.js";
 const app = express();
 app.use(express.json())
-app.use(cors({ credentials: true, origin: true }))
 app.use(cookieParser())
+app.use(cors({ credentials: true, origin: true }))
 app.use(express.static('public'))
 app.use('/uploads', express.static('uploads'))
 

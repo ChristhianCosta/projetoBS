@@ -45,8 +45,12 @@ export const userController = {
                         res.cookie("accessToken", accessToken,{
                             httpOnly: false,
                             secure: false,
-                            maxAge: 1000*60*60                            
-                        }).status(201).json({estado:`logado ${user.username}`, accessToken})
+                            maxAge: 100000000                          
+                        })
+
+                        //res.setHeader('Set-Cookie', accessToken)
+                        
+                        res.status(201).json({estado:`logado ${user.username}`})
                     }
                     
                 })
