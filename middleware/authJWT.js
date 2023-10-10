@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import 'dotenv/config'
 
+
 const {verify} = jwt
 
 const authToken = (req, res, next) =>{
@@ -13,7 +14,7 @@ const authToken = (req, res, next) =>{
         req.user = user
         next()
     } catch (error) {
-        res.status(400).clearCookie("acessToken").json({message:"erro de autenticação", error:error})
+        res.status(400).clearCookie("accessToken").json({message:"erro de autenticação", error:error})
 
 
     }
