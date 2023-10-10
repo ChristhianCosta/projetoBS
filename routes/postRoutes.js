@@ -1,6 +1,7 @@
 import postController from "../controler/postController.js";
 import { Router } from "express";
 import upload from "../config/multer.js";
+import authToken from "../middleware/authJWT.js";
 
 
 const postRouter = Router();

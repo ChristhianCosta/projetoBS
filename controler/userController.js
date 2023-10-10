@@ -46,7 +46,7 @@ export const userController = {
                             httpOnly: true,
                             secure: false,
                             maxAge: 1000*60*60                            
-                        }).status(201).json({logado: user.username, accessToken})
+                        }).status(201).json({logado: user.username})
                     }
                     
                 })
@@ -73,6 +73,13 @@ export const userController = {
         });    
              
         
+    },
+
+    logoutUser: async (req, res) => {
+        const accessToken = req.cookies.accessToken
+        
+        console.log("logo1")
+        res.clearCookie("accessToken").json({message:"erro de autenticação"})
     }
 }
 
