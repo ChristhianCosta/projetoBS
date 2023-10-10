@@ -4,7 +4,7 @@ import 'dotenv/config'
 const {verify} = jwt
 
 const authToken = (req, res, next) =>{
-    console.log(req.cookies)
+    
     const accessToken = req.cookies.accessToken       
    
     try {

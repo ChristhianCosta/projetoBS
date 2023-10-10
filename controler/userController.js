@@ -34,19 +34,19 @@ export const userController = {
         try {
             const user = await User.findOne({email:email})
             if(!user){
-                res.status(404).json({message:"usuário não encontrado"})
+                res.json({error:"usuário não encontrado"})
             } else{
                 bcrypt.compare(password, user.password).then((match)=>{
                     if(!match){
-                        res.status(400).json({error:"Combinação de senha e usuário errada"})
+                        res.json({error:"Combinação de senha e usuário errada"}).status(400)
                     } else {                        
                         const accessToken = createToken(user)                   
                        
                         res.cookie("accessToken", accessToken,{
-                            httpOnly: false,
+                            httpOnly: true,
                             secure: false,
                             maxAge: 1000*60*60                            
-                        }).status(201).json({estado:`logado ${user.username}`, accessToken})
+                        }).status(201).json({logado: user.username, accessToken})
                     }
                     
                 })

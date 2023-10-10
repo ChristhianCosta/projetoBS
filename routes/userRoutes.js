@@ -12,7 +12,6 @@ userRouter.post('/achar', userController.findUser)
 userRouter.post('/login', userController.loginUser)
 
 userRouter.get('/auth', authToken, (req, res)=>{
-    console.log(req.headers)
     res.json({data:req.user})
 })
 
