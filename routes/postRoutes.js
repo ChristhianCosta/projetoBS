@@ -3,13 +3,15 @@ import { Router } from "express";
 import upload from "../config/multer.js";
 import authToken from "../middleware/authJWT.js";
 
+/*
+    algumas rotas são redundantes para teste
+    a autenticação ainda não está implementada
+    pois a rota de logout ainda n funcionou
 
+*/
 const postRouter = Router();
 
 //criar
-postRouter.post('/criar', postController.createPost)
-
-//rota teste para multipart
 postRouter.post('/criarmulti', upload.single("file"), postController.createImage)
 
 //buscar

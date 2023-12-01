@@ -5,24 +5,10 @@ import Post from "../models/post.js";
 */
 
 const postController = {
-    createPost: async(req, res)=>{
-        try {
-            const post = {
-                title: req.body.title,
-                category: req.body.category,
-                content:req.body.content,
-                image:req.body.image, 
-            };
-
-            const response = await Post.create(post);
-
-            res.status(201).json({response, msg:"Postagem efetuada com sucesso"})
-        } catch (error) {
-            console.log(error)
-        }
-    },
-
     createImage: async(req, res)=>{
+        /*
+            o post é criado recebendo o path da imagem dele através do multer
+        */
         try {
             const post = {
                 title: req.body.title,
@@ -42,7 +28,7 @@ const postController = {
 
     findOne: async(req, res)=>{
         try {
-            //como cliente pode obter essa id?
+            /*para testes */
             const id = req.params.id
 
             const response = await Post.findById(id)
@@ -61,7 +47,7 @@ const postController = {
 
     findid: async(req, res)=>{
         try {
-            //como cliente pode obter essa id?
+            /*para testes */
             const holder = req.body.id
             var id = holder.toString()
 
@@ -81,6 +67,7 @@ const postController = {
 
     findTitle: async(req, res)=>{
         try {
+            
             const title = req.body.title
 
             const response = await Post.find({title: {$regex:title}})
@@ -107,7 +94,7 @@ const postController = {
 
     findDelete: async(req, res)=>{
         try {
-            //como cliente pode obter essa id?
+            /*implementar o acesso a id do post*/
             const holder = req.body.id
             var id = holder.toString()
 

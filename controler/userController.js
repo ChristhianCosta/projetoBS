@@ -1,9 +1,10 @@
-import { response } from "express";
 import User from "../models/user.js";
 import bcrypt from 'bcrypt'
 import createToken from "../config/JWT.js";
-import cookieParser from "cookie-parser";
 
+/*
+    faltam contollers para deletar e atualizar usuários
+*/
 export const userController = {
     createUser: async (req, res)=>{        
          
